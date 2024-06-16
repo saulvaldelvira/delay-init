@@ -1,0 +1,16 @@
+[package]
+name = "delay_init"
+version = "0.1.10"
+edition = "2021"
+description = "Macro to declare lazily initialized types"
+authors = ["Saúl Valdelvira <saul@saulv.es>"]
+license = "MIT"
+readme = "README"
+
+[dependencies]
+spin = { version = "0.9.8", optional = true }
+
+[features]
+default = []
+no_std = ["dep:spin"]
+

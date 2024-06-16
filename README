@@ -1,0 +1,3 @@
+Lazy Init
+=========
+Rust macro to declare lazily initialized static types.
