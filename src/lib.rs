@@ -63,9 +63,9 @@ impl<T: Sync> Deref for DelayInit<T> {
 
 #[macro_export]
 macro_rules! delay {
-    ( $( static $name:ident : $type:ty = $e:expr ; )* ) => {
+    ( $( $v:vis static $name:ident : $type:ty = $e:expr ; )* ) => {
         $(
-            static $name : $crate::DelayInit<$type> = $crate::DelayInit::new(|| { $e });
+            $v static $name : $crate::DelayInit<$type> = $crate::DelayInit::new(|| { $e });
         )*
     };
 }
