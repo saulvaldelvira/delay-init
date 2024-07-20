@@ -1,3 +1,45 @@
+#![allow(clippy::needless_doctest_main)]
+
+//! This is a confortable wrapper arround standard ways of
+//! declaring lazily initialized types.
+//!
+//! # Examples
+//! ## Using the [DelayInit] struct
+//! ```
+//! use delay_init::*;
+//! use std::collections::HashMap;
+//!
+//! static NUMBERS : DelayInit<HashMap<i32,i32>> = DelayInit::new(|| {
+//!     let mut map = HashMap::new();
+//!     map.insert(12,12);
+//!     map.insert(13,13);
+//!     map
+//! });
+//!
+//! fn main() {
+//!     println!("{}", NUMBERS.get(&12).unwrap());
+//! }
+//! ```
+//!
+//! ## Using the [delay] macro
+//! ```
+//! use delay_init::*;
+//! use std::collections::HashMap;
+//!
+//! delay! {
+//!     static NUMBERS : HashMap<i32,i32> = {
+//!         let mut map = HashMap::new();
+//!         map.insert(12,12);
+//!         map.insert(13,13);
+//!         map
+//!     };
+//! }
+//!
+//! fn main() {
+//!     println!("{}", NUMBERS.get(&12).unwrap());
+//! }
+//! ```
+
 #![no_std]
 
 use core::ops::Deref;

@@ -1,6 +1,6 @@
 [package]
 name = "delay_init"
-version = "0.1.10"
+version = "0.2.0"
 edition = "2021"
 description = "Macro to declare lazily initialized types"
 authors = ["Saúl Valdelvira <saul@saulv.es>"]
